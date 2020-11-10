@@ -137,7 +137,11 @@ pytest -v
 ### breadfactory.py
 
 - Create class ``BreadFactory`` with the following methods: ``make_dough``, ``bake_dough``, ``run_factory``
-    - To satisfy user stories and test cases, will need to accept any ingredient and convert to lower case, then check that the correct ingredients have been supplied in order to perform the relevant action
+    - To satisfy user stories and test cases, will need to accept any ingredient and convert to lower case:
+```python
+ingredients = [item.lower() for item in ingredients]
+```
+    - Then check that the correct ingredients have been supplied in order to perform the relevant action
 
 ```python
 class BreadFactory:
