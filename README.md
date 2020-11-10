@@ -1,6 +1,7 @@
 # TDD Bread Factory
 
-## Summary
+## The Task
+### Summary
 
 TDD bread factory is the latest bread brand in Py Land. It always produces the best bread because it has the best testing strategy!
 
@@ -8,11 +9,11 @@ What they do is before they make any new bread, they make a test to make sure th
 
 You are going to do the same with bread! This is called Test Driven Development.
 
-## Tasks
+### Tasks
 
 This exercise is going to bring together lots of concepts.
 
-### Learning Outcomes
+#### Learning Outcomes
 Learning outcomes include:
 - git
 - github
@@ -23,7 +24,7 @@ Learning outcomes include:
 - DOD
 
 
-## Installing and running
+### Installing and running
 To run the naan factory do the following:
 
 ```python
@@ -32,7 +33,7 @@ run factory()
 ```
 
 
-### TDD - test driven development
+#### TDD - test driven development
 
 1. write the test
 2. run it, and read the error
@@ -47,7 +48,7 @@ this helps with:
 
 How it works is that we write unit tests.
 
-##### Unit Tests
+###### Unit Tests
 
 Test single pieces of code. Like a function.
 
@@ -57,7 +58,7 @@ Usually has 3 phases.
 - calling of the function / piece of code with know variables
 - asserting for expect output
 
-### User stories for Naan Factory
+#### User stories for Naan Factory
 
 ```
 #1
@@ -71,7 +72,7 @@ As a user, I can user the run factory with water and flour and get naan.
 
 ```
 
-## Acceptance Criteria
+### Acceptance Criteria
 
 * you have written tests
 * test pass
