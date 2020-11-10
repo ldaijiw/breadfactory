@@ -57,9 +57,6 @@ Usually has 3 phases.
 - calling of the function / piece of code with know variables
 - asserting for expect output
 
-
-
-
 ### User stories for Naan Factory
 
 ```
@@ -83,3 +80,100 @@ As a user, I can user the run factory with water and flour and get naan.
 * code does not break
 * code has exit condition
 * DOD if followed
+
+## SOLUTION NOTES
+
+2 Files created:
+- ``test_breadfactory.py``: File for test cases for main code
+- ``breadfactory.py``: File for main functionality of bread factory
+
+
+### test_breadfactory.py
+
+As per user stories outlined above, test py file should contain 3 test methods for each user story.
+
+After importing necessary packages and initialising test class
+```python
+from breadfactory import BreadFactory
+import unittest
+
+class TestBreadFactory(unittest.TestCase):
+    factory = BreadFactory()
+
+```
+
+**TESTING make_dough METHOD**
+- If _water_ and _flour_ are passed as arguments (regardless of capital letters), expect ``make_dough`` method to return _dough_
+```python
+# test that make_dough returns 'dough' if 'water' and 'flour' passed as arguments
+    def test_make_dough(self):
+        self.assertEqual(self.factory.make_dough('water', 'flour'), 'dough')
+        self.assertEqual(self.factory.make_dough('WATER', 'Flour'), 'dough')
+        self.assertNotEqual(self.factory.make_dough('sugar', 'flour'), 'dough')
+```
+
+**TESTING bake_dough METHOD**
+- If _dough_ passed as an argument (regardless of capital letters), expect ``bake_dough`` method to return _bread_
+```python
+  # test that bake_dough returns 'bread' if 'dough' passed as argument
+    def test_bake_dough(self):
+        self.assertEqual(self.factory.bake_dough('dough'), 'bread')
+        self.assertEqual(self.factory.bake_dough('DOUGH'), 'bread')
+```
+
+**TESTING run_factory METHOD**
+- If _water_ and _flour_ are passed as arguments (regardless of capital letters), expect ``run_factory`` method to return ``True`` (i.e. bread has been successfully made)
+```python
+    # test that run_factory returns True (i.e. bread successfully made) if 'water' and 'flour' passed as arguments
+    def test_run_factory(self):
+        self.assertTrue(self.factory.run_factory('water', 'flour'))
+        self.assertTrue(self.factory.run_factory('WATER', 'Flour'))
+```
+
+**RUN TESTS USING THE TERMINAL COMMAND**
+```
+pytest -v
+```
+### breadfactory.py
+
+- Create class ``BreadFactory`` with the following methods: ``make_dough``, ``bake_dough``, ``run_factory``
+    - To satisfy user stories and test cases, will need to accept any ingredient and convert to lower case, then check that the correct ingredients have been supplied in order to perform the relevant action
+
+```python
+class BreadFactory:
+    
+    def make_dough(self, *ingredients):
+        print("\nMAKING DOUGH")
+        # change all items to lowercase
+        ingredients = [item.lower() for item in ingredients]
+        # will only return dough if water and flour contained ingredient
+        if 'water' in ingredients and 'flour' in ingredients:
+            return 'dough'
+        return 'Water and flour needed to make dough'
+    
+
+    def bake_dough(self, *ingredients):
+        print("\nBAKING")
+        # change all items to lowercase
+        ingredients = [item.lower() for item in ingredients]
+        # will only return bread if dough contained in ingredients
+        if 'dough' in ingredients:
+            return 'bread'
+        return 'dough not supplied'
+
+
+    def run_factory(self, *ingredients):
+        # change all items to lowercase
+        ingredients = [item.lower() for item in ingredients]
+        
+        # will attempt to make and bake dough
+        product = self.make_dough(*ingredients)
+        baked_product = self.bake_dough(product)
+
+        # returns True only if final product is bread
+        if baked_product == 'bread':
+            print("\nSUCCESSFULLY PRODUCED BREAD")
+            return True
+        
+        return 'Water and flour needed to make bread'
+```
