@@ -182,3 +182,19 @@ class BreadFactory:
         
         return 'Water and flour needed to make bread'
 ```
+
+**TASK IS SUCCESSFUL IF ALL TESTS ARE PASSED**
+```
+======================================================================================================= test session starts ========================================================================================================
+platform win32 -- Python 3.8.1, pytest-6.1.2, py-1.9.0, pluggy-0.13.1 -- c:\users\daiji\appdata\local\programs\python\python38\python.exe
+cachedir: .pytest_cache
+rootdir: C:\Users\daiji\Desktop\sparta\breadfactory
+collected 3 items
+
+test_breadfactory.py::TestBreadFactory::test_bake_dough PASSED                                                                                                                                                                [ 33%]
+test_breadfactory.py::TestBreadFactory::test_make_dough PASSED                                                                                                                                                                [ 66%]
+test_breadfactory.py::TestBreadFactory::test_run_factory PASSED                                                                                                                                                               [100%]
+
+======================================================================================================== 3 passed in 0.31s =========================================================================================================
+(venv) 
+```
