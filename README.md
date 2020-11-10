@@ -141,7 +141,7 @@ pytest -v
 ```python
 ingredients = [item.lower() for item in ingredients]
 ```
-    - Then check that the correct ingredients have been supplied in order to perform the relevant action
+- Then check that the correct ingredients have been supplied in order to perform the relevant action
 
 ```python
 class BreadFactory:
